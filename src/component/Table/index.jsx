@@ -4,7 +4,7 @@ import {
   useMaterialReactTable,
 } from "material-react-table";
 function Table(props) {
-  const { title, columns, data } = props;
+  const { columns, data } = props;
   const table = useMaterialReactTable({
     columns,
     data,
