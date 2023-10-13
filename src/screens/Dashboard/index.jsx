@@ -13,7 +13,7 @@ import {
 } from "../../utils/iconImports";
 import MonthlyBarChart from "../../component/Barchart";
 import Piechart from "../../component/Piechart";
-import Table from "../../component/Table";
+import Tables from "../../component/Table";
 function Dashboard(props) {
   const classes = useStyles();
   const sampleData = [
@@ -58,79 +58,13 @@ function Dashboard(props) {
       backgroundColor: "#ffc1e5",
     },
   ];
+  const columns = ["Name", "Company", "City", "State"];
+
   const data = [
-    {
-      name: {
-        firstName: "John",
-        lastName: "Doe",
-      },
-      address: "261 Erdman Ford",
-      city: "East Daphne",
-      state: "Kentucky",
-    },
-    {
-      name: {
-        firstName: "Jane",
-        lastName: "Doe",
-      },
-      address: "769 Dominic Grove",
-      city: "Columbus",
-      state: "Ohio",
-    },
-    {
-      name: {
-        firstName: "Joe",
-        lastName: "Doe",
-      },
-      address: "566 Brakus Inlet",
-      city: "South Linda",
-      state: "West Virginia",
-    },
-    {
-      name: {
-        firstName: "Kevin",
-        lastName: "Vandy",
-      },
-      address: "722 Emie Stream",
-      city: "Lincoln",
-      state: "Nebraska",
-    },
-    {
-      name: {
-        firstName: "Joshua",
-        lastName: "Rolluffs",
-      },
-      address: "32188 Larkin Turnpike",
-      city: "Charleston",
-      state: "South Carolina",
-    },
-  ];
-  const columns = [
-    {
-      accessorKey: "name.firstName", //access nested data with dot notation
-      header: "First Name",
-      size: 150,
-    },
-    {
-      accessorKey: "name.lastName",
-      header: "Last Name",
-      size: 150,
-    },
-    {
-      accessorKey: "address", //normal accessorKey
-      header: "Address",
-      size: 200,
-    },
-    {
-      accessorKey: "city",
-      header: "City",
-      size: 150,
-    },
-    {
-      accessorKey: "state",
-      header: "State",
-      size: 150,
-    },
+    ["Joe James", "Test Corp", "Yonkers", "NY"],
+    ["John Walsh", "Test Corp", "Hartford", "CT"],
+    ["Bob Herm", "Test Corp", "Tampa", "FL"],
+    ["James Houston", "Test Corp", "Dallas", "TX"],
   ];
   const [selectedOption, setSelectedOption] = useState("");
 
@@ -182,8 +116,17 @@ function Dashboard(props) {
               <Piechart />
             </Box>
           </Grid>
-          <Grid item xs={12} sm={12}>
-            <Table title={"Product Sell"} columns={columns} data={data} />
+
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            md={12}
+            sx={{ overflow: "auto", maxWidth: "400px" }}>
+            <Box boxShadow={3} p={2.5} bgcolor='white'>
+              <h3>Product Sell</h3>
+              <Tables />
+            </Box>
           </Grid>
         </Grid>
       </div>
